@@ -29,6 +29,8 @@ if(NOT ${LINUX_SYSTEM_NAME} STREQUAL "cros_sdk")
     add_compile_options(
       # Enable macro security features
       -D_FORTIFY_SOURCE=2
+      # "FORTIFY_SOURCE requires compiling with optimization"
+      -O
     )
 endif()
 
