@@ -89,7 +89,10 @@ ExternalProject_Add(
     git -C ${NPU_COMPILER_SOURCE_DIR} lfs install &&
     git -C ${NPU_COMPILER_SOURCE_DIR} lfs pull &&
     git -C ${NPU_COMPILER_SOURCE_DIR}/thirdparty/vpucostmodel lfs install &&
-    git -C ${NPU_COMPILER_SOURCE_DIR}/thirdparty/vpucostmodel lfs pull
+    git -C ${NPU_COMPILER_SOURCE_DIR}/thirdparty/vpucostmodel lfs pull &&
+    git -C ${NPU_COMPILER_SOURCE_DIR} reset --hard HEAD &&
+    git -C ${NPU_COMPILER_SOURCE_DIR} apply
+      ${CMAKE_CURRENT_SOURCE_DIR}/npu_compiler_patches/0001-Disable-compiler-warning-as-error-in-npu_compiler.patch
   CONFIGURE_COMMAND ""
   BUILD_COMMAND ""
   INSTALL_COMMAND ""
