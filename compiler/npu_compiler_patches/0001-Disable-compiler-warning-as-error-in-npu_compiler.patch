@@ -1,0 +1,25 @@
+From 53f896f0f564b99eea591bc4cf6a8304c2f526f6 Mon Sep 17 00:00:00 2001
+From: "Wludzik, Jozef" <jozef.wludzik@intel.com>
+Date: Thu, 27 Feb 2025 17:19:06 +0100
+Subject: [PATCH] Disable compiler warning as error in npu_compiler
+
+---
+ cmake/compile_options.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/compile_options.cmake b/cmake/compile_options.cmake
+index d9baa2c1..0963cbd0 100644
+--- a/cmake/compile_options.cmake
++++ b/cmake/compile_options.cmake
+@@ -91,7 +91,7 @@ function(enable_warnings_as_errors TARGET_NAME)
+     else()
+         target_compile_options(${TARGET_NAME}
+             PRIVATE
+-                -Wall -Wextra -Werror -Werror=suggest-override
++                -Wall -Wextra
+         )
+     endif()
+ endfunction()
+-- 
+2.34.1
+
